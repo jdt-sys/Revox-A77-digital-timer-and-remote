@@ -79,9 +79,6 @@ Without that connection, PLAY / FF / REW will only operate momentarily and wonâ€
 ### Notes
 
 - All control is done by momentarily shorting the corresponding wires.  
-- Use relays or opto-isolated outputs (recommended).  
-- Do not switch directly between modes (e.g. REW â†’ PLAY).  
-  Always issue STOP first and allow reels to come to rest.  
 - Latching is handled internally by the deck once red/brown are connected.
 
 ### References
