@@ -47,7 +47,35 @@ Future idea:
 - MicroPython on Pico W  
 - PIO used for encoder counting  
 - Async web server (AJAX + WebSocket updates)  
-- Custom OLED font rendering  
+- Custom OLED font rendering
+
+## A77 Remote Wiring
+
+The A77 remote is controlled by shorting specific wires together (via relay contacts).
+
+### Important
+
+Red and brown must be connected for transport functions to latch.  
+Without that connection, PLAY / FF / REW will only operate momentarily and won’t stay engaged.
+
+### Connections
+
+- **STOP:** red ↔ brown *(opens to stop / releases latch)*  
+- **PLAY:** orange → yellow  
+- **FAST FORWARD (FF):** black → gray  
+- **REWIND (REW):** white → gray  
+
+### Record (Unverified)
+
+- **REC:** green → blue *(not tested)*  
+
+### Notes
+
+- All control is done by momentarily shorting the corresponding wires.  
+- Use relays or opto-isolated outputs (recommended).  
+- Do not switch directly between modes (e.g. REW → PLAY).  
+  Always issue STOP first and allow reels to come to rest.  
+- Latching is handled internally by the deck once red/brown are connected.
 
 ### References
 
