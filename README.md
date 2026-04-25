@@ -51,7 +51,7 @@ Future idea:
 
 ### References
 
-- https://github.com/peterhinch/micropython-font-to-py  
+- https://github.com/peterhinch/micropython-font-to-py - Font encoder
 - https://github.com/jamon/pi-pico-pio-quadrature-encoder — PIO-based quadrature decoding  
 - https://www.tapeheads.net/threads/revox-a77-wifi-remote-i-am-making-my-own.113867/ — similar DIY WiFi remote project and discussion  
 
@@ -64,9 +64,6 @@ Future idea:
 ## TODO
 
 - Clean up wiring at rear of deck  
-- Finalize mounting positions  
-- Improve UI (less 1998)  
-- Optional IR remote learning  
 - Better position tracking (reel size awareness)  
 
 ## Disclaimer
