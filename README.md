@@ -51,7 +51,7 @@ Future idea:
 
 ### References
 
-- https://github.com/peterhinch/micropython-font-to-py - Font encoder
+- https://github.com/peterhinch/micropython-font-to-py — Font encoder
 - https://github.com/jamon/pi-pico-pio-quadrature-encoder — PIO-based quadrature decoding  
 - https://www.tapeheads.net/threads/revox-a77-wifi-remote-i-am-making-my-own.113867/ — similar DIY WiFi remote project and discussion  
 
