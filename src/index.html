@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revox Counter</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --panel: #d7d5cf;
+            --display-text: #f2f2ee;
+            --btn: #3a3a3d;
+            --btn-edge: #222;
+            --record: #a51616;
+            --reset: #e5e3dc;
+            --text-mid: #4a4a4a;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #555;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .deck {
+            width: min(92vw, 820px);
+            border-radius: 20px;
+            padding: 24px;
+            background: var(--panel);
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+
+        .logo-wrap {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .logo-wrap svg {
+            width: 200px;
+            fill: #111;
+        }
+
+        .counter-shell {
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 12px;
+            background: #111;
+        }
+
+        .counter-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: var(--display-text);
+            font-family: "Courier New", monospace;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            letter-spacing: 0.08em;
+            text-align: center;
+        }
+
+        .counter-input::-webkit-outer-spin-button,
+        .counter-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .counter-input {
+            -moz-appearance: textfield;
+        }
+
+        .transport {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .transport button {
+            height: 72px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            color: #eee;
+            background: var(--btn);
+            border: 1px solid var(--btn-edge);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .transport button i {
+            font-size: 1.4rem;
+        }
+
+        .btn-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            opacity: 0.85;
+        }
+
+        .record {
+            background: var(--record) !important;
+        }
+
+        .reset {
+            width: 100%;
+            height: 56px;
+            border-radius: 10px;
+            background: var(--reset);
+        }
+
+        .footer-line {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-mid);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="deck">
+
+    <div class="logo-wrap">
+        <svg viewBox="-0.956661 -0.956661 131.075442 33.802022" aria-label="Revox logo">
+            <path d="m 118.99712,19.1525 9.53751,-10.9 -8.075,0 -5.5,6.13625 -5.17626,-6.13625 -9.68874,0 9.82125,11.75 -10.09,11.2175 8.6125,0 5.4925,-6.415 5.36249,6.415 9.86875,0 -10.165,-12.0675 z M 87.84838,7.845 c -4.125,0 -7.835,0.2775 -10.41876,2.16625 -0.001,0 -0.001,10e-4 -0.002,10e-4 -0.12,0.0888 -0.23625,0.18125 -0.35125,0.27625 -10e-4,10e-4 -0.002,0.004 -0.004,0.004 -0.0775,0.065 -0.15375,0.12875 -0.22875,0.19625 -0.001,0.001 -0.001,0.001 -0.001,0.001 -0.11875,0.10625 -0.23625,0.215 -0.34875,0.33 0,0 -0.001,10e-4 -0.001,10e-4 0,0 -10e-4,10e-4 -0.002,0.003 L 80.56571,0 l -6.45999,0 -8.3425,22.78625 -7.80626,-22.6975 -8.25374,0 3.01874,8.1825 -20.42374,0 0,22.94875 24.31375,0 0,-4.93375 -16.14875,0 0,-4.305 11.32124,0 0,-4.84625 -11.32124,0 0,-3.6775 14.16375,-0.0188 6.56,17.78125 7.62625,0 4.97375,-13.21375 c 0,0.004 0,0.006 -10e-4,0.01 -0.0663,0.59 -0.0663,1.18875 -0.0663,1.85 0,0.27 0.006,0.53 0.0137,0.7875 0.30001,10.29125 6.50376,11.235 14.11626,11.235 7.80375,0 14.13,-0.9875 14.13,-12.0225 0,-11.03375 -6.32625,-12.02125 -14.13,-12.02125 m -0.09,18.885 c -3.54249,0 -6.41499,-1.16625 -6.41499,-6.81875 0,-5.5625 2.8725,-6.8175 6.41499,-6.8175 3.54251,0 6.41501,1.255 6.41501,6.8175 0,5.5625 -2.8725,6.81875 -6.41501,6.81875 M 27.9925,16.41762 l 0,-2.38875 c 0,-2.81 -2.27625,-5.77875 -5.085,-5.77875 l -1.13001,0 -2.04124,0.003 -19.73625,0 0,22.9675 7.98375,0 0,-7.62625 10.295,0 c 1.2575,0 1.4575,0.6525 1.4575,1.75 l 0,5.87625 8.12,0 0,-7.35375 c -0.0225,-1.49375 -1.09125,-2.72125 -2.5075,-2.985 1.575,-0.86375 2.64375,-2.53875 2.64375,-4.46375 m -10.745,2.02 -9.30876,0 0,-4.98 c 0,0 8.70126,0.01 9.26376,0 1.42,0 2.53375,1.11375 2.53375,2.48875 0,1.375 -1.13625,2.49125 -2.48875,2.49125"/>
+        </svg>
+    </div>
+
+    <div class="counter-shell">
+        <form onsubmit="submitGoto(event)">
+            <input
+                id="count"
+                class="counter-input"
+                type="number"
+                inputmode="numeric"
+                min="0"
+                max="99999"
+                step="1"
+                value="00000"
+                onfocus="editingCounter = true"
+                onblur="editingCounter = false"
+            >
+        </form>
+    </div>
+
+    <div class="transport">
+        <button onclick="sendCommand('rwd')">
+            <i class="fa-solid fa-backward"></i>
+            <span class="btn-label">REW</span>
+        </button>
+
+        <button onclick="sendCommand('ff')">
+            <i class="fa-solid fa-forward"></i>
+            <span class="btn-label">FF</span>
+        </button>
+
+        <button onclick="sendCommand('play')">
+            <i class="fa-solid fa-play"></i>
+            <span class="btn-label">PLAY</span>
+        </button>
+
+        <button onclick="sendCommand('stop')">
+            <i class="fa-solid fa-stop"></i>
+            <span class="btn-label">STOP</span>
+        </button>
+
+        <button class="record" onclick="sendCommand('rec')">
+            <i class="fa-solid fa-circle"></i>
+            <span class="btn-label">REC</span>
+        </button>
+    </div>
+
+    <button class="reset" onclick="sendCommand('reset')">
+        Reset Counter
+    </button>
+
+    <div class="footer-line">Remote Counter Control</div>
+
+</div>
+
+<script>
+    let ws;
+    let editingCounter = false;
+
+    function connect() {
+        const proto = location.protocol === "https:" ? "wss://" : "ws://";
+        ws = new WebSocket(proto + location.host + "/ws");
+
+        ws.onmessage = (event) => {
+            try {
+                const data = JSON.parse(event.data);
+
+                if (data.count !== undefined && !editingCounter) {
+                    document.getElementById("count").value =
+                        data.count.toString().padStart(5, "0");
+                }
+            } catch (e) {
+                console.log("Bad JSON");
+            }
+        };
+
+        ws.onclose = () => {
+            setTimeout(connect, 1000);
+        };
+    }
+
+    function sendCommand(cmd) {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(cmd);
+        }
+    }
+
+    function submitGoto(event) {
+        event.preventDefault();
+
+        const input = document.getElementById("count");
+        const val = input.value.padStart(5, "0");
+
+        editingCounter = false;
+        input.blur();
+
+        sendCommand("goto:" + val);
+    }
+
+    connect();
+</script>
+
+</body>
+</html>
