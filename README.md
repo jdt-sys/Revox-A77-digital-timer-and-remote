@@ -14,9 +14,16 @@ All mods are reversible and use existing holes where possible.
 ## Hardware
 
 - Raspberry Pi Pico W  
-- SH1106 128x64 OLED (cheap AliExpress special)  
-- Quadrature encoder (belt-driven from take-up reel)  
-- 6-channel relay board with opto-couplers  
+
+- 6-channel 24V relay board with opto-couplers  
+  [AliExpress link](https://www.aliexpress.us/item/3256806094499129.html)
+
+- 1.3" SH1106 OLED display  
+  [AliExpress link](https://www.aliexpress.us/item/3256806019738729.html)
+
+- Quadrature optical rotary encoder  
+  [AliExpress link](https://www.aliexpress.us/item/3256809776375520.html)
+
 - Buck converter (27V → 5V)  
 - CAT5 cable (used for OLED + reset button)  
 
