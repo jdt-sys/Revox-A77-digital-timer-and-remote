@@ -101,7 +101,6 @@ Without that connection, PLAY / FF / REW will only operate momentarily and won�
 ## Repo Contents
 
 - `/src` → MicroPython code  
-- `/web` → HTML/JS interface  
 - `/cad` → 3D printable parts (encoder mount, etc.)  
 
 ## TODO
