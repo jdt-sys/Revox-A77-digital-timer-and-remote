@@ -11,6 +11,8 @@ All mods are reversible and use existing holes where possible.
 - Safe transport control logic (no rewind → play abuse)  
 - Non-invasive install  
 
+![Web UI](images/use.jpg)
+
 ## Hardware
 
 - Raspberry Pi Pico W  
