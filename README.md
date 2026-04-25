@@ -13,6 +13,15 @@ All mods are reversible and use existing holes where possible.
 
 ![Web UI](images/use.jpg)
 
+
+![Remote](images/remote.jpg)
+
+
+![Encoder](images/encoder.jpg)
+
+![OLED](images/oled.jpg)
+
+
 ## Hardware
 
 - Raspberry Pi Pico W  
