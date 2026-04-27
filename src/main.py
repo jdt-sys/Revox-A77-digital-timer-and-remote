@@ -34,8 +34,8 @@ DEBOUNCE_MS = 20
 PULSE_MS = 200
 WAIT_STEP_MS = 50
 
-WIFI_SSID = "dutoithomenew"
-WIFI_PASSWORD = "miranda546"
+WIFI_SSID = "*******"
+WIFI_PASSWORD = "******"
 
 TRANSPORT_PINS = {
     "play": 6,
